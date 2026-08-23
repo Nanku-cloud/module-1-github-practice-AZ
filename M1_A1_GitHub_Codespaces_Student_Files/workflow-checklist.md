@@ -1,16 +1,16 @@
 # GitHub Workflow Checklist
 
-- [ ] Opened the assignment in GitHub Codespaces
-- [ ] Ran `pwd` and `ls -la`
-- [ ] Ran `git status`
-- [ ] Confirmed the current branch
-- [ ] Ran `git pull`
-- [ ] Created `feature/github-onboarding`
-- [ ] Completed and committed `student-profile.md`
-- [ ] Completed and committed `git-command-guide.md`
-- [ ] Practiced `git stash`
-- [ ] Restored work with `git stash pop`
-- [ ] Completed and committed this checklist
+- [X] Opened the assignment in GitHub Codespaces
+- [X] Ran `pwd` and `ls -la`
+- [X] Ran `git status`
+- [X] Confirmed the current branch
+- [X] Ran `git pull`
+- [X] Created `feature/github-onboarding`
+- [X] Completed and committed `student-profile.md`
+- [X] Completed and committed `git-command-guide.md`
+- [X] Practiced `git stash`
+- [X] Restored work with `git stash pop`
+- [X] Completed and committed this checklist
 - [ ] Pushed the feature branch
 - [ ] Switched back to `main`
 - [ ] Merged the feature branch
@@ -20,4 +20,4 @@
 
 ## Work Session Notes
 
-[COMPLETE THIS: Add at least one sentence before practicing `git stash`.]
+So far i have completed student-profie and git-command-guide it took me a while but i got them done.
