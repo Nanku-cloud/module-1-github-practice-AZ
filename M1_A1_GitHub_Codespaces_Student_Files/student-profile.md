@@ -2,12 +2,12 @@
 
 ## Student Information
 
-**Name:** [COMPLETE THIS]
+**Name:** Asahel Zuniga
 
-**Course section:** [COMPLETE THIS]
+**Course section:** Mobile Applications Development ITSE-1333
 
-**Career or academic goal:** [COMPLETE THIS]
+**Career or academic goal:** I want to be able to graduate by 2027
 
 ## Why Version Control Matters
 
-[COMPLETE THIS: Write two to three complete sentences explaining why developers use version control.]
+Version control acts as a safety net that tracks every code modification over time, allowing you to instantly undo mistakes or restore working code if something breaks. It also enables multiple developers to work on separate features simultaneously without overwriting each other's work.
