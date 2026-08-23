@@ -11,12 +11,12 @@
 - [X] Practiced `git stash`
 - [X] Restored work with `git stash pop`
 - [X] Completed and committed this checklist
-- [ ] Pushed the feature branch
-- [ ] Switched back to `main`
-- [ ] Merged the feature branch
-- [ ] Pushed `main`
-- [ ] Reviewed commit history
-- [ ] Verified the files on GitHub
+- [X] Pushed the feature branch
+- [X] Switched back to `main`
+- [X] Merged the feature branch
+- [X] Pushed `main`
+- [X] Reviewed commit history
+- [X] Verified the files on GitHub
 
 ## Work Session Notes
 
