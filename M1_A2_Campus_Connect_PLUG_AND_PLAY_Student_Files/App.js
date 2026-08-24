@@ -21,7 +21,7 @@ export default function App() {
       </View>
 
       {/* STEP 1: Type exactly: What's Happening? */}
-      <Text style={styles.sectionTitle}></Text>
+      <Text style={styles.sectionTitle}>What's Happening?</Text>
 
       {/* STEP 2: Complete the first activity card with the exact text shown in README.md. */}
       <View style={styles.activityCard}>
@@ -106,7 +106,13 @@ const styles = StyleSheet.create({
   // fontWeight: '900',
   // marginBottom: 16,
   sectionTitle: {
-  },
+  color: '#FFFFFF',
+  fontSize: 28,
+  fontWeight: '900',
+  marginBottom: 16,
+},
+
+
 
   // STEP 2: Add these exact properties inside activityCard:
   // backgroundColor: '#151B31',
