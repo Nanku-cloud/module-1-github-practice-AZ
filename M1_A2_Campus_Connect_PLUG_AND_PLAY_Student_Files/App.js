@@ -26,16 +26,18 @@ export default function App() {
       {/* STEP 2: Complete the first activity card with the exact text shown in README.md. */}
       <View style={styles.activityCard}>
         {/* Type exactly: 🎮 */}
-        <Text style={styles.activityEmoji}></Text>
+        <Text style={styles.activityEmoji}>🎮</Text>
 
         {/* Type exactly: Game Lounge */}
-        <Text style={styles.activityTitle}></Text>
+        <Text style={styles.activityTitle}>Game Lounge</Text>
 
         {/* Type exactly: Drop in, play games, and meet other students. */}
-        <Text style={styles.activityDescription}></Text>
+        <Text style={styles.activityDescription}>
+        Drop in, play games, and meet other students.
+        </Text>
 
         {/* Type exactly: OPEN TODAY */}
-        <Text style={styles.activityStatus}></Text>
+        <Text style={styles.activityStatus}>OPEN TODAY</Text>
       </View>
 
       {/* STEP 3: Paste the Study Jam card directly below this comment. */}
@@ -122,12 +124,19 @@ const styles = StyleSheet.create({
   // marginBottom: 16,
   // padding: 20,
   activityCard: {
+  backgroundColor: '#151B31',
+  borderColor: '#2A3357',
+  borderRadius: 22,
+  borderWidth: 1,
+  marginBottom: 16,
+  padding: 20,
   },
 
   // STEP 2: Add this exact property:
   // fontSize: 34,
   activityEmoji: {
-  },
+  fontSize: 34,
+},
 
   // STEP 2: Add these exact properties:
   // color: '#FFFFFF',
@@ -135,7 +144,11 @@ const styles = StyleSheet.create({
   // fontWeight: '900',
   // marginTop: 12,
   activityTitle: {
-  },
+  color: '#FFFFFF',
+  fontSize: 22,
+  fontWeight: '900',
+  marginTop: 12,
+},
 
   // STEP 2: Add these exact properties:
   // color: '#AEB8D4',
@@ -143,7 +156,11 @@ const styles = StyleSheet.create({
   // lineHeight: 22,
   // marginTop: 8,
   activityDescription: {
-  },
+  color: '#AEB8D4',
+  fontSize: 15,
+  lineHeight: 22,
+  marginTop: 8,
+},
 
   // STEP 2: Add these exact properties:
   // color: '#8B5CF6',
@@ -152,7 +169,12 @@ const styles = StyleSheet.create({
   // letterSpacing: 0.8,
   // marginTop: 14,
   activityStatus: {
-  },
+  color: '#8B5CF6',
+  fontSize: 12,
+  fontWeight: '900',
+  letterSpacing: 0.8,
+  marginTop: 14,
+},
 
   selectionPanel: {
     backgroundColor: '#10172A',
