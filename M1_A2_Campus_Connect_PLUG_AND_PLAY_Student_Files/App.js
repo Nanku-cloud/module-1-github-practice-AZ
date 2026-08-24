@@ -41,8 +41,24 @@ export default function App() {
       </View>
 
       {/* STEP 3: Paste the Study Jam card directly below this comment. */}
+      <View style={styles.activityCard}>
+        <Text style={styles.activityEmoji}>📚</Text>
+        <Text style={styles.activityTitle}>Study Jam</Text>
+        <Text style={styles.activityDescription}>
+          Find a study space and get ready for your next exam.
+        </Text>
+        <Text style={styles.activityStatus}>STUDY NOW</Text>
+      </View>
 
       {/* STEP 3: Paste the Campus Eats card directly below this comment. */}
+      <View style={styles.activityCard}>
+        <Text style={styles.activityEmoji}>🍕</Text>
+        <Text style={styles.activityTitle}>Campus Eats</Text>
+        <Text style={styles.activityDescription}>
+          Find food, snacks, and student dining options around campus.
+        </Text>
+        <Text style={styles.activityStatus}>GET FOOD</Text>
+      </View>
 
       {/*
         STEP 4:
