@@ -31,8 +31,8 @@ export default function App() {
   description="Drop in, play games, and meet other students."
   status="OPEN TODAY"
   accent="#8B5CF6"
-  isSelected={false}
-  onPress={() => {}}
+  isSelected={selectedActivity === 'Game Lounge'}
+  onPress={() => setSelectedActivity('Game Lounge')}
 />
 
       {/* STEP 3: Paste the Study Jam card directly below this comment. */}
@@ -42,8 +42,8 @@ export default function App() {
   description="Find a study space and get ready for your next exam."
   status="STUDY NOW"
   accent="#22D3EE"
-  isSelected={false}
-  onPress={() => {}}
+  isSelected={selectedActivity === 'Study Jam'}
+  onPress={() => setSelectedActivity('Study Jam')}
 />
 
       {/* STEP 3: Paste the Campus Eats card directly below this comment. */}
@@ -53,8 +53,8 @@ export default function App() {
   description="Find food, snacks, and student dining options around campus."
   status="GET FOOD"
   accent="#FB923C"
-  isSelected={false}
-  onPress={() => {}}
+  isSelected={selectedActivity === 'Campus Eats'}
+  onPress={() => setSelectedActivity('Campus Eats')}
 />
 
       {/*
@@ -71,7 +71,9 @@ export default function App() {
       <View style={styles.selectionPanel}>
         <Text style={styles.selectionLabel}>YOUR PICK</Text>
         <Text style={styles.selectionText}>
-          Pick a campus activity to see what you're checking out.
+          {selectedActivity
+            ? `You're checking out: ${selectedActivity}`
+            : "Pick a campus activity to see what you're checking out."}
         </Text>
       </View>
     </ScrollView>
