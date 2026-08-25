@@ -25,4 +25,12 @@ export const campusActivities = [
     status: 'GET FOOD',
     accent: '#FB923C',
   },
+  {
+    id: '4',
+    emoji: '🎤',
+    title: 'Karaoke Night',
+    description: 'Grab the mic, drop the lyrics, and sing your heart out—stage fright strictly optional!',
+    status: 'TONIGHT',
+   accent: '#ffb7c5',
+},
 ];
