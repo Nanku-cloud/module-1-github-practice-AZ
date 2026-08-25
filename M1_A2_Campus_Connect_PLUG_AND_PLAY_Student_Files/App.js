@@ -1,4 +1,5 @@
 import CampusCard from './src/components/CampusCard';
+import { campusActivities } from './src/data/campusActivities';
 import React, { useState } from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
@@ -24,39 +25,18 @@ export default function App() {
       {/* STEP 1: Type exactly: What's Happening? */}
       <Text style={styles.sectionTitle}>What's Happening?</Text>
 
-      {/* STEP 2: Complete the first activity card with the exact text shown in README.md. */}
-      <CampusCard
-  emoji="🎮"
-  title="Game Lounge"
-  description="Drop in, play games, and meet other students."
-  status="OPEN TODAY"
-  accent="#8B5CF6"
-  isSelected={selectedActivity === 'Game Lounge'}
-  onPress={() => setSelectedActivity('Game Lounge')}
-/>
-
-      {/* STEP 3: Paste the Study Jam card directly below this comment. */}
-      <CampusCard
-  emoji="📚"
-  title="Study Jam"
-  description="Find a study space and get ready for your next exam."
-  status="STUDY NOW"
-  accent="#22D3EE"
-  isSelected={selectedActivity === 'Study Jam'}
-  onPress={() => setSelectedActivity('Study Jam')}
-/>
-
-      {/* STEP 3: Paste the Campus Eats card directly below this comment. */}
-      <CampusCard
-  emoji="🍕"
-  title="Campus Eats"
-  description="Find food, snacks, and student dining options around campus."
-  status="GET FOOD"
-  accent="#FB923C"
-  isSelected={selectedActivity === 'Campus Eats'}
-  onPress={() => setSelectedActivity('Campus Eats')}
-/>
-
+      {campusActivities.map((activity) => (
+  <CampusCard
+    key={activity.id}
+    emoji={activity.emoji}
+    title={activity.title}
+    description={activity.description}
+    status={activity.status}
+    accent={activity.accent}
+    isSelected={selectedActivity === activity.title}
+    onPress={() => setSelectedActivity(activity.title)}
+  />
+))}
       {/*
         STEP 4:
         After you create CampusCard.js, replace the three hard-coded cards above
