@@ -43,3 +43,47 @@
 {"_e":"metro:bundling:done","_t":1787957368712,"id":"3","total":1,"ms":34.007341}
 {"_e":"metro:client_log","_t":1787957369279,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
 {"_e":"metro:client_log","_t":1787957369279,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"root:init","_t":1788034652943,"format":"v0-jsonl","version":"57.0.20"}
+{"_e":"env:mode","_t":1788034652946,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1788034652948,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1788034654243,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../../../app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1788034655138,"serverRoot":"../../..","projectRoot":"../../..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"metro:server_log","_t":1788034656163,"level":"error","data":["An unknown error occurred while installing React Native DevTools. Details:\n\n/workspaces/module-1-github-practice-AZ/M2_A1_Drop_Inventory_Student_Files/node_modules/expo/node_modules/@react-native/debugger-shell/bin/react-native-devtools: error while loading shared libraries: libatk-1.0.so.0: cannot open shared object file: No such file or directory\n"]}
+{"_e":"expo:dev-tools-plugin:load","_t":1788034656378,"plugins":[]}
+{"_e":"metro:instantiate","_t":1788034659963,"atlas":false,"workers":1,"host":"::","port":8081}
+{"_e":"metro:bundling:started","_t":1788034663659,"id":"1","platform":"web","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1788034663660,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1788034663672,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1788034664267,"id":"1","progress":0.010000000000000002,"total":1,"current":1}
+{"_e":"metro:bundling:progress","_t":1788034664367,"id":"1","progress":0.0625,"total":12,"current":3}
+{"_e":"metro:bundling:progress","_t":1788034664472,"id":"1","progress":0.1695501730103806,"total":17,"current":7}
+{"_e":"metro:bundling:progress","_t":1788034664587,"id":"1","progress":0.1695501730103806,"total":44,"current":12}
+{"_e":"metro:bundling:progress","_t":1788034664693,"id":"1","progress":0.1758584807492196,"total":62,"current":26}
+{"_e":"metro:bundling:progress","_t":1788034664794,"id":"1","progress":0.32402366863905324,"total":65,"current":37}
+{"_e":"metro:bundling:progress","_t":1788034664900,"id":"1","progress":0.3978698224852071,"total":65,"current":41}
+{"_e":"metro:bundling:progress","_t":1788034665033,"id":"1","progress":0.41189574515482286,"total":67,"current":43}
+{"_e":"metro:bundling:progress","_t":1788034665154,"id":"1","progress":0.41189574515482286,"total":88,"current":48}
+{"_e":"metro:bundling:progress","_t":1788034665276,"id":"1","progress":0.41189574515482286,"total":104,"current":54}
+{"_e":"metro:bundling:progress","_t":1788034665382,"id":"1","progress":0.41189574515482286,"total":107,"current":67}
+{"_e":"metro:bundling:progress","_t":1788034665516,"id":"1","progress":0.4975286989795919,"total":112,"current":79}
+{"_e":"metro:bundling:progress","_t":1788034665617,"id":"1","progress":0.5247690495380991,"total":127,"current":92}
+{"_e":"metro:bundling:progress","_t":1788034665718,"id":"1","progress":0.5377777777777777,"total":135,"current":99}
+{"_e":"metro:bundling:progress","_t":1788034665817,"id":"1","progress":0.5521315586419754,"total":144,"current":107}
+{"_e":"metro:bundling:progress","_t":1788034665926,"id":"1","progress":0.615926934786092,"total":158,"current":124}
+{"_e":"metro:bundling:progress","_t":1788034666028,"id":"1","progress":0.6776100535395597,"total":164,"current":135}
+{"_e":"metro:bundling:progress","_t":1788034666129,"id":"1","progress":0.6776100535395597,"total":186,"current":149}
+{"_e":"metro:bundling:progress","_t":1788034666232,"id":"1","progress":0.741256541508193,"total":187,"current":161}
+{"_e":"metro:bundling:progress","_t":1788034666344,"id":"1","progress":0.7678818152832394,"total":194,"current":170}
+{"_e":"metro:bundling:progress","_t":1788034666474,"id":"1","progress":0.8344119822485206,"total":208,"current":190}
+{"_e":"metro:bundling:progress","_t":1788034666574,"id":"1","progress":0.9168965824136702,"total":212,"current":203}
+{"_e":"metro:bundling:progress","_t":1788034668160,"id":"1","progress":0.9168965824136702,"total":225,"current":208}
+{"_e":"metro:bundling:progress","_t":1788034668265,"id":"1","progress":0.9168965824136702,"total":230,"current":212}
+{"_e":"metro:bundling:progress","_t":1788034668381,"id":"1","progress":0.9829790342610856,"total":234,"current":232}
+{"_e":"metro:bundling:progress","_t":1788034668533,"id":"1","progress":0.999,"total":235,"current":235}
+{"_e":"metro:bundling:done","_t":1788034668742,"id":"1","total":235,"ms":5082.673962}
+{"_e":"metro:client_log","_t":1788034669337,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1788034669338,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:bundling:failed","_t":1788035075795,"id":null,"message":"Error: /workspaces/module-1-github-practice-AZ/M2_A1_Drop_Inventory_Student_Files/src/components/ProductCard.js: Unexpected token, expected \"}\" (35:13)\n\n  33 |           <Text style={[styles.stock, { color: accent }]}>\n  34 |             {quantity === 0\n> 35 |              {quantity === 0\n     |              ^\n  36 |              ? 'SOLD OUT'\n  37 |     : quantity <= 5\n  38 |       ? `LOW STOCK · ${quantity}`","importStack":null,"filename":"src/components/ProductCard.js","targetModuleName":null,"originModulePath":null}
+{"_e":"metro:client_log","_t":1788035075897,"level":"error","data":["[TransformError: Error: /workspaces/module-1-github-practice-AZ/M2_A1_Drop_Inventory_Student_Files/src/components/ProductCard.js: Unexpected token, expected \"}\" (35:13)\n\n  33 |           <Text style={[styles.stock, { color: accent }]}>\n  34 |             {quantity === 0\n> 35 |              {quantity === 0\n     |              ^\n  36 |              ? 'SOLD OUT'\n  37 |     : quantity <= 5\n  38 |       ? `LOW STOCK · ${quantity}`]"]}
+{"_e":"metro:bundling:failed","_t":1788035085453,"id":null,"message":"Error: /workspaces/module-1-github-practice-AZ/M2_A1_Drop_Inventory_Student_Files/src/components/ProductCard.js: Unexpected token, expected \"}\" (35:12)\n\n  33 |           <Text style={[styles.stock, { color: accent }]}>\n  34 |             {quantity === 0\n> 35 |             {quantity === 0\n     |             ^\n  36 |              ? 'SOLD OUT'\n  37 |     : quantity <= 5\n  38 |       ? `LOW STOCK · ${quantity}`","importStack":null,"filename":"src/components/ProductCard.js","targetModuleName":null,"originModulePath":null}
+{"_e":"metro:client_log","_t":1788035085523,"level":"error","data":["[TransformError: Error: /workspaces/module-1-github-practice-AZ/M2_A1_Drop_Inventory_Student_Files/src/components/ProductCard.js: Unexpected token, expected \"}\" (35:12)\n\n  33 |           <Text style={[styles.stock, { color: accent }]}>\n  34 |             {quantity === 0\n> 35 |             {quantity === 0\n     |             ^\n  36 |              ? 'SOLD OUT'\n  37 |     : quantity <= 5\n  38 |       ? `LOW STOCK · ${quantity}`]"]}

@@ -3,31 +3,48 @@ import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 
 // Add these props inside the function parentheses:
 // image, name, category, price, quantity, accent, saved, onToggleSaved
-export default function ProductCard() {
+export default function ProductCard({
+  image,
+  name,
+  category,
+  price,
+  quantity,
+  accent,
+  saved,
+  onToggleSaved,
+}) {
   return (
     <View style={styles.card}>
       {/* Display the product image prop below. */}
-      <Image style={styles.image} />
+      <Image source={image} style={styles.image} />
 
       <View style={styles.body}>
         {/* Display the category prop below. */}
-        <Text style={styles.category}></Text>
+        <Text style={styles.category}>{category}</Text>
 
         {/* Display the product name prop below. */}
-        <Text style={styles.name}></Text>
+        <Text style={styles.name}>{name}</Text>
 
         <View style={styles.metaRow}>
           {/* Display the formatted price below. */}
-          <Text style={styles.price}></Text>
+          <Text style={styles.price}>${price.toFixed(2)}</Text>
 
           {/* Display the stock label below using the quantity prop. */}
-          <Text style={styles.stock}></Text>
+          <Text style={[styles.stock, { color: accent }]}>
+            {quantity === 0
+            ? 'SOLD OUT'
+            : quantity <= 5
+            ? `LOW STOCK · ${quantity}`
+            : `IN STOCK · ${quantity}`}
+          </Text>
         </View>
 
         {/* Connect the Pressable below to onToggleSaved. */}
-        <Pressable style={styles.saveButton}>
+        <Pressable onPress={onToggleSaved} style={styles.saveButton}>
           {/* Display SAVE ITEM or SAVED based on the saved prop. */}
-          <Text style={styles.saveButtonText}></Text>
+          <Text style={styles.saveButtonText}>
+            {saved ? 'SAVED ✓' : 'SAVE ITEM'}
+          </Text>
         </Pressable>
       </View>
     </View>
