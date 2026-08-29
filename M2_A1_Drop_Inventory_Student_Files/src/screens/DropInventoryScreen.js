@@ -9,6 +9,13 @@ export default function DropInventoryScreen() {
   const [savedIds, setSavedIds] = useState([]);
 
   // Add the toggleSaved function from README.md below.
+  const toggleSaved = (productId) => {
+  setSavedIds((currentIds) =>
+    currentIds.includes(productId)
+      ? currentIds.filter((id) => id !== productId)
+      : [...currentIds, productId]
+  );
+};
 
 
   return (
@@ -32,7 +39,7 @@ export default function DropInventoryScreen() {
 
         <View style={styles.statCard}>
           {/* Display the number of saved product ids below. */}
-          <Text style={styles.statValue}></Text>
+          <Text style={styles.statValue}>{savedIds.length}</Text>
           <Text style={styles.statLabel}>SAVED</Text>
         </View>
       </View>
