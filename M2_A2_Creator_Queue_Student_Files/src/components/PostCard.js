@@ -10,28 +10,71 @@ import { colors, spacing } from '../utils/theme';
 
 // Add these props inside the function parentheses:
 // id, title, platform, type, status, onAdvance, onDelete
-export default function PostCard() {
+export default function PostCard({
+  id,
+  title,
+  platform,
+  type,
+  status,
+  onAdvance,
+  onDelete,
+}) {
+  const statusColor =
+  status === 'Published'
+    ? colors.published
+    : status === 'Scheduled'
+      ? colors.warning
+      : colors.primary;
   return (
     <View style={styles.card}>
       <View style={styles.topRow}>
         {/* Display the platform prop below. */}
-        <Text style={styles.platform}></Text>
+        <Text style={styles.platform}>{platform}</Text>
 
         {/* Display the status prop and apply the matching status style. */}
-        <Text style={styles.status}></Text>
+        <Text
+          style={[
+            styles.status,
+            {
+             color: statusColor,
+              backgroundColor: `${statusColor}20`,
+             },
+          ]}
+        >
+          {status}
+        </Text>
       </View>
 
       {/* Display the title prop below. */}
-      <Text style={styles.title}></Text>
+      <Text style={styles.title}>{title}</Text>
 
       {/* Display the content type prop below. */}
-      <Text style={styles.type}></Text>
+      <Text style={styles.type}>{type}</Text>
 
       {/* Connect this button to onAdvance(id). */}
-      <Pressable style={styles.primaryButton}>
-        {/* Use the status prop to display the correct button text. */}
-        <Text style={styles.primaryButtonText}></Text>
-      </Pressable>
+      <Pressable
+        onPress={() => onAdvance(id)}
+        style={styles.primaryButton}
+        disabled={status === 'Published'}
+      >
+        <Text style={styles.primaryButtonText}>
+          {status === 'Draft'
+            ? 'MOVE TO SCHEDULED'
+            : status === 'Scheduled'
+              ? 'MARK PUBLISHED'
+              : 'PUBLISHED ✓'}
+          </Text>
+        </Pressable>
+        {status === 'Published' ? (
+          <Pressable
+            onPress={() => onDelete(id)}
+            style={styles.deleteButton}
+          >
+            <Text style={styles.deleteButtonText}>
+              REMOVE FROM QUEUE
+            </Text>
+          </Pressable>
+        ) : null}
 
       {/* Show the delete button only when status is Published. */}
 
