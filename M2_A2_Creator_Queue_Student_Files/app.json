@@ -1,0 +1,9 @@
+{
+  "expo": {
+    "name": "Creator Queue",
+    "slug": "creator-queue",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light"
+  }
+}
