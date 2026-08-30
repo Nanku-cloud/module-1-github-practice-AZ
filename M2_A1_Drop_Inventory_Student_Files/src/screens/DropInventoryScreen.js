@@ -48,7 +48,19 @@ export default function DropInventoryScreen() {
 
       {/* Use products.map() below to display one ProductCard for each product. */}
       <View>
-
+      {products.map((product) => (
+        <ProductCard
+          key={product.id}
+          image={product.image}
+          name={product.name}
+          category={product.category}
+          price={product.price}
+          quantity={product.quantity}
+          accent={product.accent}
+          saved={savedIds.includes(product.id)}
+          onToggleSaved={() => toggleSaved(product.id)}
+        />
+      ))}
 
       </View>
     </ScrollView>
