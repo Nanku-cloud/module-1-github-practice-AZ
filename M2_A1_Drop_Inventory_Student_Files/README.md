@@ -399,14 +399,14 @@ Example:
 
 ```javascript
 {
-  id: 'drop-004',
-  image: require('../assets/images/your-drop.png'),
-  name: 'Metro Canvas 04',
-  category: 'Everyday',
-  price: 98,
-  quantity: 7,
-  accent: '#EB569E',
-},
+    id: 'drop-004',
+    image: require('../assets/images/your-drop.png'),
+    name: 'Metro Canvas 04',
+    category: 'Everyday',
+    price: 120,
+    quantity: 10,
+    accent: '#FF5733',
+  },
 ```
 
 You may change the name, category, price, quantity, and accent color.
