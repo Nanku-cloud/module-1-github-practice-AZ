@@ -21,6 +21,18 @@ export default function CreatorQueueScreen() {
   const [selectedFilter, setSelectedFilter] = useState('All');
 
   function handleAddPost(formValues) {
+    const newPost = {
+      id: createId(),
+      title: formValues.title,
+      platform: formValues.platform,
+      type: formValues.type,
+      status: 'Draft',
+    };
+
+    setPosts((currentPosts) => [
+      newPost,
+      ...currentPosts,
+    ]);
     // Create a new post object with a unique id and Draft status.
     // Then add the new post to the beginning of the posts array.
 
