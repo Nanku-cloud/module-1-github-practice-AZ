@@ -21,30 +21,29 @@ export default function PostComposer({ onAdd }) {
 
   // Create error state with an empty string.
   const [error, setError] = useState('');
+  
 
-  function handleSubmit() {
-    // Add the validation code from README.md below.
+function handleSubmit() {
     if (!title.trim() || !platform.trim() || !type.trim()) {
-  setError('Complete all three fields before adding content.');
-  return;
-
-
-
-    // Add the onAdd code from README.md below.
-    onAdd({
-  title: title.trim(),
-  platform: platform.trim(),
-  type: type.trim(),
-});
-setTitle('');
-setPlatform('');
-setType('');
-setError('');
+      setError('Complete all three fields before adding content.');
+      return;
     }
 
+    onAdd({
+      title: title.trim(),
+      platform: platform.trim(),
+      type: type.trim(),
+    });
+
+    setTitle('');
+    setPlatform('');
+    setType('');
+    setError('');
+  }
+
+  // Clear all three input fields and the error message below.
     // Clear all three input fields and the error message below.
 
-  }
 
   return (
     <View style={styles.card}>
