@@ -70,6 +70,9 @@ export default function CreatorQueueScreen() {
   }
 
   function handleDeletePost(id) {
+    setPosts((currentPosts) =>
+  currentPosts.filter((post) => post.id !== id)
+);
     // Use filter() to remove the matching published post.
 
   }
