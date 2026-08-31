@@ -16,7 +16,29 @@ export default function StatusFilter({
 }) {
   return (
     <View style={styles.container}>
-      {/* Use filterOptions.map() to display the filter buttons below. */}
+      {filterOptions.map((option) => {
+        const isActive = selectedFilter === option;
+
+        return (
+          <Pressable
+            key={option}
+            onPress={() => onChangeFilter(option)}
+            style={[
+              styles.button,
+              isActive && styles.activeButton,
+            ]}
+          >
+            <Text
+              style={[
+                styles.text,
+                isActive && styles.activeText,
+              ]}
+            >
+            {option}
+           </Text>
+          </Pressable>
+        );
+      })}
 
     </View>
   );

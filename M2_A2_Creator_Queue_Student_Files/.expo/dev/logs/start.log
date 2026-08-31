@@ -113,3 +113,15 @@
 {"_e":"metro:bundling:done","_t":1788127213124,"id":"5","total":1,"ms":12.069929}
 {"_e":"metro:client_log","_t":1788127213599,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
 {"_e":"metro:client_log","_t":1788127213599,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:bundling:started","_t":1788132167515,"id":"7","platform":"web","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1788132167516,"id":"7","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1788132167516,"id":"7","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1788132167556,"id":"7","total":1,"ms":40.757516}
+{"_e":"metro:client_log","_t":1788132168143,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1788132168143,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:bundling:started","_t":1788135627256,"id":"9","platform":"web","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1788135627256,"id":"9","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1788135627256,"id":"9","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1788135627278,"id":"9","total":1,"ms":22.060317}
+{"_e":"metro:client_log","_t":1788135627807,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1788135627815,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
