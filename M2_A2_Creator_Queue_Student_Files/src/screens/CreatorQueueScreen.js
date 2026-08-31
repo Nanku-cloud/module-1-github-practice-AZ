@@ -122,9 +122,26 @@ export default function CreatorQueueScreen() {
 
       <View style={styles.list}>
         {/* Use filteredPosts.map() to display one PostCard per post. */}
+        {filteredPosts.map((post) => (
+          <PostCard
+            key={post.id}
+            id={post.id}
+            title={post.title}
+            platform={post.platform}
+            type={post.type}
+            status={post.status}
+            onAdvance={handleAdvancePost}
+            onDelete={handleDeletePost}
+          />
+        ))}
 
 
         {/* Display the empty-list message only when filteredPosts is empty. */}
+        {filteredPosts.length === 0 ? (
+          <Text style={styles.emptyMessage}>
+             No content matches this filter.
+          </Text>
+        ) : null}
 
       </View>
     </ScrollView>
