@@ -398,17 +398,17 @@ Inside `handleAddPost`, paste:
 
 ```javascript
 const newPost = {
-  id: createId(),
-  title: formValues.title,
-  platform: formValues.platform,
-  type: formValues.type,
-  status: 'Draft',
-};
+    id: createId(),
+    title: formValues.title,
+    platform: formValues.platform,
+    type: formValues.type,
+    status: 'Draft',
+  };
 
-setPosts((currentPosts) => [
-  newPost,
-  ...currentPosts,
-]);
+  setPosts((currentPosts) => [
+    newPost,
+    ...currentPosts,
+  ]);
 ```
 
 ### Checkpoint
