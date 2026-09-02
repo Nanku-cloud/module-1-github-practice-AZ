@@ -1,0 +1,55 @@
+const products = [
+  {
+    id: 'product-101',
+    name: 'Studio Wireless Noise-Canceling Headphones',
+    rating: 4.6,
+    reviewCount: 2418,
+    price: 89.99,
+    quantity: 18,
+    delivery: 'FREE delivery tomorrow',
+    imageSource: require('../assets/images/headphones.png'),
+  },
+  {
+    id: 'product-102',
+    name: 'Low-Profile Mechanical Keyboard with Backlight',
+    rating: 4.7,
+    reviewCount: 1084,
+    price: 129.99,
+    quantity: 4,
+    delivery: 'Delivery tomorrow',
+    imageSource: require('../assets/images/keyboard.png'),
+  },
+  {
+    id: 'product-103',
+    name: 'Precision Wireless Gaming Mouse',
+    rating: 4.5,
+    reviewCount: 762,
+    price: 54.99,
+    quantity: 0,
+    delivery: 'Temporarily unavailable',
+    imageSource: require('../assets/images/mouse.png'),
+  },
+  {
+    id: 'product-104',
+    name: 'Active Smartwatch with Fitness Tracking',
+    rating: 4.4,
+    reviewCount: 1867,
+    price: 149.99,
+    quantity: 12,
+    delivery: 'FREE delivery in 2 days',
+    imageSource: require('../assets/images/watch.png'),
+  },
+  {
+    id: 'product-105',
+    name: 'Portable Bluetooth Speaker',
+    rating: 4.8,
+    reviewCount: 3271,
+    price: 69.99,
+    quantity: 3,
+    delivery: 'FREE delivery tomorrow',
+    imageSource: require('../assets/images/speaker.png'),
+  },
+  // TODO 1: Add the original product from Step 2 of the README here.
+];
+
+export default products;

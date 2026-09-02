@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "name": "Marketplace Search",
+    "slug": "marketplace-search-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}
