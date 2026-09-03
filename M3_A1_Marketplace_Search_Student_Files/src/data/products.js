@@ -49,7 +49,16 @@ const products = [
     delivery: 'FREE delivery tomorrow',
     imageSource: require('../assets/images/speaker.png'),
   },
-  // TODO 1: Add the original product from Step 2 of the README here.
+  {
+  id: 'product-106',
+  name: 'Metro Tech Commuter Backpack',
+  rating: 4.6,
+  reviewCount: 529,
+  price: 74.99,
+  quantity: 8,
+  delivery: 'FREE delivery Friday',
+  imageSource: require('../assets/images/backpack.png'),
+},
 ];
 
 export default products;
