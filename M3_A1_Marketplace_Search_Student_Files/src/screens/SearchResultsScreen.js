@@ -15,6 +15,13 @@ export default function SearchResultsScreen() {
   const [loading, setLoading] = useState(true);
 
   // TODO 4: Add the loading useEffect from Step 4.
+  useEffect(() => {
+  const timer = setTimeout(() => {
+    setLoading(false);
+  }, 900);
+
+  return () => clearTimeout(timer);
+}, []);
 
   // TODO 5: Complete the filtered product list from Step 5.
   const visibleProducts = products;
