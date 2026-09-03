@@ -37,7 +37,11 @@ export default function SearchResultsScreen() {
 }, [query]);
 
   function handleAddToCart(id) {
-    // TODO 6: Update cartIds using the code from Step 6.
+    setCartIds((current) =>
+  current.includes(id)
+    ? current
+    : [...current, id]
+);
   }
 
   function renderProduct({ item }) {
