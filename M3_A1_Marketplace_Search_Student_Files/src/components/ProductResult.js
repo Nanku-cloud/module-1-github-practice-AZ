@@ -5,9 +5,13 @@ import { colors } from '../utils/theme';
 
 export default function ProductResult({ id, name, rating, reviewCount, price, quantity, delivery, imageSource, inCart, onAddToCart }) {
   // TODO 2: Add the availability logic from Step 3 of the README.
-  const unavailable = false;
-  const lowStock = false;
-  const availability = 'In Stock';
+  const unavailable = quantity === 0;
+const lowStock = quantity > 0 && quantity <= 5;
+const availability = unavailable
+  ? 'Currently unavailable'
+  : lowStock
+    ? `Only ${quantity} left in stock`
+    : 'In Stock';
 
   return (
     <View style={styles.row}>
@@ -24,7 +28,7 @@ export default function ProductResult({ id, name, rating, reviewCount, price, qu
         <View style={styles.priceRow}><Text style={styles.dollar}>$</Text><Text style={styles.price}>{Math.floor(price)}</Text><Text style={styles.cents}>{price.toFixed(2).split('.')[1]}</Text></View>
         <Text style={styles.delivery}>{delivery}</Text>
         <Text style={[styles.availability, unavailable?styles.unavailable:lowStock?styles.lowStock:styles.inStock]}>{availability}</Text>
-        <Pressable disabled={unavailable || inCart} onPress={() => { /* TODO 3: connect onAddToCart(id) */ }} style={({pressed})=>[styles.button,(unavailable||inCart)&&styles.buttonDisabled,pressed&&!unavailable&&!inCart&&styles.buttonPressed]}>
+        <Pressable disabled={unavailable || inCart} onPress={() => onAddToCart(id)} style={({pressed}) => [styles.button, (unavailable || inCart) && styles.buttonDisabled, pressed && !unavailable && !inCart && styles.buttonPressed]}>
           <Text style={styles.buttonText}>{unavailable?'Unavailable':inCart?'Added to Cart':'Add to Cart'}</Text>
         </Pressable>
       </View>
