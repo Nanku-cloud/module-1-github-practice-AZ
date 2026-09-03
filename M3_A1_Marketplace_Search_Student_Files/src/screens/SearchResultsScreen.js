@@ -45,15 +45,37 @@ export default function SearchResultsScreen() {
   }
 
   function renderProduct({ item }) {
-    // TODO 7: Return ProductResult with the props from Step 7.
-    return null;
-  }
+  return (
+    <ProductResult
+      {...item}
+      inCart={cartIds.includes(item.id)}
+      onAddToCart={handleAddToCart}
+    />
+  );
+}
 
   return (
     <SafeAreaView style={styles.screen}>
       <MarketplaceHeader query={query} setQuery={setQuery} cartCount={cartIds.length} />
       {/* TODO 8: Replace this section with the loading/FlatList code from Step 8. */}
-      <SearchTools resultCount={products.length} />
+      {loading ? (
+  <LoadingState />
+) : (
+  <FlatList
+    data={visibleProducts}
+    keyExtractor={(item) => item.id}
+    ListHeaderComponent={
+      <SearchTools resultCount={visibleProducts.length} />
+    }
+    ListEmptyComponent={<EmptyResults />}
+    renderItem={renderProduct}
+    contentContainerStyle={
+      visibleProducts.length === 0
+        ? styles.emptyList
+        : null
+    }
+  />
+)}
       <BottomNavigation cartCount={cartIds.length} />
     </SafeAreaView>
   );
