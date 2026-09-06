@@ -44,7 +44,7 @@ export default function PostActions({
       <Action
         icon={bookmarked ? 'bookmark' : 'bookmark-outline'}
         color={bookmarked ? colors.accent : undefined}
-        onPress={() => {}}
+        onPress={() => onBookmark(id)}
       />
     </View>
   );
