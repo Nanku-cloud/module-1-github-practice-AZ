@@ -35,7 +35,7 @@ export default function PostActions({
         icon={liked ? 'heart' : 'heart-outline'}
         value={likes + (liked ? 1 : 0)}
         color={liked ? colors.like : undefined}
-        onPress={() => {}}
+        onPress={() => onLike(id)}
       />
 
       <Action icon="stats-chart-outline" value={views >= 1000 ? `${(views / 1000).toFixed(1)}K` : views} />
