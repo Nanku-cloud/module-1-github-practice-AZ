@@ -34,7 +34,11 @@ export default function FeedScreen() {
 }, [selectedFeed]);
 
   function handleLike(id) {
-    // TODO 6: Toggle likedIds in Step 7.
+    setLikedIds((current) =>
+  current.includes(id)
+    ? current.filter((postId) => postId !== id)
+    : [...current, id]
+);
   }
 
   function handleBookmark(id) {

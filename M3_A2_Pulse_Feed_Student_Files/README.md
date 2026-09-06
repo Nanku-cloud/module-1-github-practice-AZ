@@ -234,7 +234,7 @@ The **Following** feed will show only records where:
 ```javascript
 following: true
 ```
-s
+
 ### Commit
 
 ```bash
