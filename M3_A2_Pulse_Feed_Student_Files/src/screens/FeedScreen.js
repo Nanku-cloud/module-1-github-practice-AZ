@@ -50,9 +50,16 @@ export default function FeedScreen() {
   }
 
   function renderPost({ item }) {
-    // TODO 8: Return PostCard with the props from Step 9.
-    return null;
-  }
+  return (
+    <PostCard
+      {...item}
+      liked={likedIds.includes(item.id)}
+      bookmarked={bookmarkedIds.includes(item.id)}
+      onLike={handleLike}
+      onBookmark={handleBookmark}
+    />
+  );
+}
 
   return (
     <SafeAreaView style={styles.screen}>
@@ -62,7 +69,17 @@ export default function FeedScreen() {
         onChangeFeed={setSelectedFeed}
       />
 
-      {/* TODO 9: Replace this placeholder with loading/FlatList in Step 10. */}
+      {loading ? (
+  <LoadingState />
+) : (
+  <FlatList
+    contentContainerStyle={styles.listContent}
+    data={visiblePosts}
+    keyExtractor={(item) => item.id}
+    ListEmptyComponent={EmptyFeed}
+    renderItem={renderPost}
+  />
+)}
 
       <BottomNavigation />
     </SafeAreaView>
