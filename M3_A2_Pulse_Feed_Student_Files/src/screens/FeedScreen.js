@@ -16,6 +16,13 @@ export default function FeedScreen() {
   const [loading, setLoading] = useState(true);
 
   // TODO 4: Add the loading useEffect from Step 5.
+  useEffect(() => {
+  const timer = setTimeout(() => {
+    setLoading(false);
+  }, 900);
+
+  return () => clearTimeout(timer);
+}, []);
 
   // TODO 5: Filter the Following feed in Step 6.
   const visiblePosts = posts;
