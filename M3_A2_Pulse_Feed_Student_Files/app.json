@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "name": "Pulse Feed",
+    "slug": "pulse-feed-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}
