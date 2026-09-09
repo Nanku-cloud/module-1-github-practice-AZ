@@ -41,11 +41,13 @@ export default function OrderCustomizerScreen() {
 );
   }
 
+  const total = useMemo(() => {
   const addOnTotal = menuItem.addOns
-  .filter((item) => selectedAddOns.includes(item.id))
-  .reduce((sum, item) => sum + item.price, 0);
+    .filter((item) => selectedAddOns.includes(item.id))
+    .reduce((sum, item) => sum + item.price, 0);
 
-return (menuItem.basePrice + addOnTotal) * quantity;
+  return (menuItem.basePrice + addOnTotal) * quantity;
+}, [quantity, selectedAddOns]);
 
   function handleAddOrder() {
     setOrderAdded(true);
