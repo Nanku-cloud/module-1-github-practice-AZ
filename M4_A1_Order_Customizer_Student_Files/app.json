@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "web": {
+      "bundler": "metro"
+    },
+    "name": "Order Customizer",
+    "slug": "order-customizer-app"
+  }
+}
