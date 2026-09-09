@@ -10,7 +10,7 @@ const menuItem = {
     { id: 'addon-avocado', label: 'Avocado', price: 2.00 },
     { id: 'addon-jalapeno', label: 'Jalapeños', price: 0.75 },
 
-    // TODO 1: Add your original add-on from Step 2.
+    { id: 'addon-onion', label: 'Crispy Onions', price: 1.00 },
   ],
 };
 
