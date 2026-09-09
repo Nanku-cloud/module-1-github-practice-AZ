@@ -28,7 +28,15 @@ export default function AddOnModal({
           </View>
 
           <ScrollView>
-            {/* TODO 2: Render OptionRow for each add-on in Step 6. */}
+            {addOns.map((item) => (
+  <OptionRow
+    key={item.id}
+    label={item.label}
+    price={item.price}
+    selected={selectedIds.includes(item.id)}
+    onPress={() => onToggle(item.id)}
+  />
+))}
           </ScrollView>
 
           <Pressable onPress={onClose} style={styles.doneButton}>
