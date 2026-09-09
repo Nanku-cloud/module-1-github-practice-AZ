@@ -34,7 +34,11 @@ export default function OrderCustomizerScreen() {
   }
 
   function handleToggleAddOn(id) {
-    // TODO 6: Add/remove the selected add-on ID.
+    setSelectedAddOns((current) =>
+  current.includes(id)
+    ? current.filter((itemId) => itemId !== id)
+    : [...current, id]
+);
   }
 
   const total = useMemo(() => {
