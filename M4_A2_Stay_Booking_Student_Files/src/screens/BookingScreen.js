@@ -34,11 +34,11 @@ export default function BookingScreen() {
   );
 
   function handleDecreaseGuests() {
-    // TODO 4: Prevent guest count from going below 1.
+    setGuestCount((current) => Math.max(1, current - 1));
   }
 
   function handleIncreaseGuests() {
-    // TODO 5: Increase guest count.
+    setGuestCount((current) => current + 1);
   }
 
   function handleConfirm() {
