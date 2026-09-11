@@ -43,7 +43,27 @@ export default function BookingScreen() {
   }
 
   function handleConfirm() {
-    // TODO 6: Add validation and confirmation in Step 7.
+    setError('');
+setConfirmed(false);
+
+if (!destination.trim()) {
+  setError('Enter a destination before continuing.');
+  destinationRef.current?.focus();
+  return;
+}
+
+if (!guestName.trim()) {
+  setError('Enter the primary guest name before continuing.');
+  guestNameRef.current?.focus();
+  return;
+}
+
+if (!selectedRoomId) {
+  setError('Choose a room preference before continuing.');
+  return;
+}
+
+setConfirmed(true);
   }
 
   return (
