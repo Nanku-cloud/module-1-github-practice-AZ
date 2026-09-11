@@ -18,7 +18,12 @@ const roomOptions = [
     nightlyPrice: 249,
   },
 
-  // TODO 1: Add your original room preference in Step 2.
+  {
+  id: 'room-balcony',
+  name: 'Balcony King',
+  description: 'King bed with private balcony',
+  nightlyPrice: 219,
+},
 ];
 
 export default roomOptions;
