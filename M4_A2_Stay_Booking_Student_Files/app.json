@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "web": {
+      "bundler": "metro"
+    },
+    "name": "Stay Booking",
+    "slug": "stay-booking-app"
+  }
+}

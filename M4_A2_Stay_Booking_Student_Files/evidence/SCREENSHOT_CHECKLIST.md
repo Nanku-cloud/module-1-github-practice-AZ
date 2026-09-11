@@ -1,0 +1,16 @@
+# Stay Booking Screenshot Checklist
+- [ ] Completed application
+- [ ] Destination TextInput
+- [ ] Guest-name TextInput
+- [ ] Guest count above 1
+- [ ] Room modal open
+- [ ] Selected room
+- [ ] Validation error
+- [ ] Successful confirmation
+- [ ] Original room
+- [ ] RoomPreferenceModal.js
+- [ ] BookingScreen.js
+- [ ] Clean git status
+- [ ] Git log graph
+- [ ] GitHub main
+- [ ] APA 7 reflection
