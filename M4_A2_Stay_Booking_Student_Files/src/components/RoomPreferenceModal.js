@@ -27,7 +27,42 @@ export default function RoomPreferenceModal({
           </View>
 
           <ScrollView>
-            {/* TODO 2: Render the room choices in Step 6. */}
+            {rooms.map((room) => (
+  <Pressable
+    key={room.id}
+    onPress={() => {
+      onSelect(room.id);
+      onClose();
+    }}
+    style={styles.room}
+  >
+    <View style={styles.roomTop}>
+      <Text style={styles.roomName}>{room.name}</Text>
+
+      <Ionicons
+        name={
+          selectedId === room.id
+            ? 'checkmark-circle'
+            : 'ellipse-outline'
+        }
+        size={24}
+        color={
+          selectedId === room.id
+            ? colors.accent
+            : colors.muted
+        }
+      />
+    </View>
+
+    <Text style={styles.description}>
+      {room.description}
+    </Text>
+
+    <Text style={styles.price}>
+      ${room.nightlyPrice} / night
+    </Text>
+  </Pressable>
+))}
           </ScrollView>
         </View>
       </View>
