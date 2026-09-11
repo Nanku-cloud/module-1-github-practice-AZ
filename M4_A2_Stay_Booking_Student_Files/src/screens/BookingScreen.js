@@ -26,7 +26,8 @@ export default function BookingScreen() {
   const [error, setError] = useState('');
   const [confirmed, setConfirmed] = useState(false);
 
-  // TODO 3: Create destinationRef and guestNameRef in Step 4.
+  const destinationRef = useRef(null);
+  const guestNameRef = useRef(null);
 
   const selectedRoom = useMemo(
     () => roomOptions.find((room) => room.id === selectedRoomId),
@@ -62,9 +63,9 @@ export default function BookingScreen() {
         </Text>
 
         <TextInput
-          // TODO 7: Connect destinationRef in Step 4.
+          ref={destinationRef}
           onChangeText={setDestination}
-          onSubmitEditing={() => {}}
+          onSubmitEditing={() => guestNameRef.current?.focus()}
           placeholder="Where are you going?"
           placeholderTextColor={colors.muted}
           returnKeyType="next"
@@ -73,7 +74,7 @@ export default function BookingScreen() {
         />
 
         <TextInput
-          // TODO 8: Connect guestNameRef in Step 4.
+          ref={guestNameRef}
           onChangeText={setGuestName}
           placeholder="Primary guest name"
           placeholderTextColor={colors.muted}
@@ -82,8 +83,7 @@ export default function BookingScreen() {
         />
 
         <Pressable
-          // TODO 9: Focus destination input in Step 4.
-          onPress={() => {}}
+          onPress={() => destinationRef.current?.focus()}
         >
           <Text style={styles.focusLink}>Focus destination</Text>
         </Pressable>
