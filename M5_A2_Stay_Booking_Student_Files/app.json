@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "StayFinder",
+    "slug": "stayfinder-booking",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "web": { "bundler": "metro" }
+  }
+}
