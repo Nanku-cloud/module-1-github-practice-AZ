@@ -113,6 +113,8 @@ export default function MarketplaceScreen() {
   async function clearCart() {
     // TODO 9:
     // Call clearSavedCart(), then setCartItems([]).
+    await clearSavedCart();
+    setCartItems([]);
   }
 
   const totalItems = cartItems.reduce(
