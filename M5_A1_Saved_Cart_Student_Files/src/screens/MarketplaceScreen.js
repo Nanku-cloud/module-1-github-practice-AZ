@@ -58,6 +58,22 @@ export default function MarketplaceScreen() {
     // If item already exists, increase its quantity.
     // Otherwise add it with quantity: 1.
     // Then update state AND call saveCart(updatedCart).
+    
+    let updatedCart = [];
+    const existingIndex = cartItems.findIndex((item) => item.id === product.id);
+
+    if (existingIndex >= 0) {
+      updatedCart = cartItems.map((item, index) =>
+        index === existingIndex
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      );
+    } else {
+      updatedCart = [...cartItems, { ...product, quantity: 1 }];
+    }
+
+    setCartItems(updatedCart);
+    await saveCart(updatedCart);
   }
 
   async function increaseQuantity(productId) {
