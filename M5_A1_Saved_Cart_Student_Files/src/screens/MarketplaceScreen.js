@@ -23,10 +23,31 @@ export default function MarketplaceScreen() {
   const [storageError, setStorageError] = useState('');
   const [activeTab, setActiveTab] = useState('shop');
 
-  // TODO 4:
-  // Use useEffect() to restore the saved cart when this screen first loads.
-  // Required flow:
-  // isLoading true -> loadCart() -> setCartItems() -> catch error -> finally setIsLoading(false)
+  useEffect(() => {
+    const restoreCart = async () => {
+      // 1. Set loading
+      setIsLoading(true);
+
+      // 2. Clear the previous error
+      setStorageError('');
+
+      try {
+        // 3. await loadCart()
+        const savedItems = await loadCart();
+
+        // 4. Put the returned array into 'cartItems'
+        setCartItems(savedItems);
+      } catch (error) {
+        // 5. Catch errors
+        setStorageError('Failed to load saved cart data.');
+      } finally {
+        // 6. End loading in 'finally'
+        setIsLoading(false);
+      }
+    };
+
+    restoreCart();
+  }, []);
 
   const filteredProducts = products.filter((product) =>
     product.name.toLowerCase().includes(search.trim().toLowerCase())
