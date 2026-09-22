@@ -23,8 +23,8 @@ export const hotels = [
   {
     id: 'houston-1',
     cityId: 'houston',
-    name: 'Bayou Grand Hotel',
-    neighborhood: 'Downtown Houston',
+    name: 'Crowne Plaza ',
+    neighborhood: 'Galleria Area',
     rating: 8.8,
     reviewCount: 1240,
     price: 189,
@@ -36,7 +36,7 @@ export const hotels = [
   {
     id: 'houston-2',
     cityId: 'houston',
-    name: 'Museum District Suites',
+    name: 'ZaZa Houston Hotel',
     neighborhood: 'Museum District',
     rating: 9.1,
     reviewCount: 876,
@@ -49,7 +49,7 @@ export const hotels = [
   {
     id: 'chicago-1',
     cityId: 'chicago',
-    name: 'Lakefront House Chicago',
+    name: 'Riu Plaza Chicago Hotel',
     neighborhood: 'Streeterville',
     rating: 8.9,
     reviewCount: 1733,
@@ -62,8 +62,8 @@ export const hotels = [
   {
     id: 'chicago-2',
     cityId: 'chicago',
-    name: 'Loop Central Hotel',
-    neighborhood: 'The Loop',
+    name: 'The Talbott',
+    neighborhood: 'Gold Coast',
     rating: 9.0,
     reviewCount: 1104,
     price: 279,
@@ -75,7 +75,7 @@ export const hotels = [
   {
     id: 'new-york-1',
     cityId: 'new-york',
-    name: 'Midtown Park Hotel',
+    name: 'InterContinental',
     neighborhood: 'Midtown Manhattan',
     rating: 8.7,
     reviewCount: 2490,
@@ -88,7 +88,7 @@ export const hotels = [
   {
     id: 'new-york-2',
     cityId: 'new-york',
-    name: 'SoHo Terrace',
+    name: 'The Wolseley',
     neighborhood: 'SoHo',
     rating: 9.2,
     reviewCount: 954,
