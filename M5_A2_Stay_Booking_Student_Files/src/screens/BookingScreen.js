@@ -31,8 +31,29 @@ export default function BookingScreen() {
 
   // TODO 6:
   // Restore BOTH saved hotels and selected city when this screen loads.
-  // Use try/catch/finally and end with isLoading false.
+  // Use try/catch/finally and end with setIsLoading(false).
+  useEffect(() => {
+    async function loadInitialData() {
+      try {
+        const storedCity = await loadSelectedCity();
+        if (storedCity) {
+          setSelectedCityId(storedCity);
+        }
 
+        const storedHotels = await loadHotels();
+        if (storedHotels) {
+          setSavedHotels(storedHotels);
+        }
+      } catch (error) {
+        setStorageError('Failed to load saved booking data.');
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    loadInitialData();
+  }, []);
+  
   const visibleHotels = hotels.filter(
     (hotel) => hotel.cityId === selectedCityId
   );
