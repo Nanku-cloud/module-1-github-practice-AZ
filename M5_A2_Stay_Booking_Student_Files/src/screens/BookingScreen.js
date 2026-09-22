@@ -53,21 +53,36 @@ export default function BookingScreen() {
 
     loadInitialData();
   }, []);
-  
+
   const visibleHotels = hotels.filter(
     (hotel) => hotel.cityId === selectedCityId
   );
 
   async function handleSelectCity(cityId) {
-    // TODO 7:
-    // Update selectedCityId and persist the selected city.
+    try {
+      setSelectedCityId(cityId);
+      await saveSelectedCity(cityId);
+    } catch (error) {
+      setStorageError('Failed to save selected city.');
+    }
   }
 
   async function toggleSavedHotel(hotel) {
-    // TODO 8:
-    // If hotel is already saved, remove it.
-    // Otherwise add it.
-    // Update React state and AsyncStorage using the SAME updated array.
+    try {
+      const exists = savedHotels.some((item) => item.id === hotel.id);
+      let updatedHotels;
+
+      if (exists) {
+        updatedHotels = savedHotels.filter((item) => item.id !== hotel.id);
+      } else {
+        updatedHotels = [...savedHotels, hotel];
+      }
+
+      setSavedHotels(updatedHotels);
+      await saveHotels(updatedHotels);
+    } catch (error) {
+      setStorageError('Failed to update saved hotels.');
+    }
   }
 
   async function removeSavedHotel(hotelId) {
