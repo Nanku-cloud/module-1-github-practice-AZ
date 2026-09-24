@@ -1,0 +1,6 @@
+import React from 'react';
+import { ActivityIndicator, Pressable, StyleSheet, Text, View } from 'react-native';
+export function LoadingState(){return <View style={s.center}><ActivityIndicator size="large"/><Text style={s.title}>Loading live products...</Text><Text style={s.text}>Northstar is requesting data from the remote API.</Text></View>}
+export function ErrorState({message,onRetry}){return <View style={s.center}><Text style={s.error}>We could not load the marketplace.</Text><Text style={s.text}>{message}</Text><Pressable onPress={onRetry} style={s.button}><Text style={s.buttonText}>Try Again</Text></Pressable></View>}
+export function EmptyState(){return <View style={s.center}><Text style={s.title}>No matching products</Text><Text style={s.text}>Try a different search term or category.</Text></View>}
+const s=StyleSheet.create({center:{flex:1,alignItems:'center',justifyContent:'center',padding:28,backgroundColor:'#fff'},title:{marginTop:12,fontSize:19,fontWeight:'900',textAlign:'center'},error:{fontSize:19,fontWeight:'900',color:'#9f1239',textAlign:'center'},text:{marginTop:8,color:'#6b7280',textAlign:'center',lineHeight:20},button:{marginTop:16,borderRadius:20,paddingHorizontal:18,paddingVertical:11,backgroundColor:'#ffd814',borderWidth:1,borderColor:'#f3c200'},buttonText:{fontWeight:'900'}});

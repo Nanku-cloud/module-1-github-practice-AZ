@@ -1,0 +1,4 @@
+import React from 'react';
+import { Pressable, ScrollView, StyleSheet, Text } from 'react-native';
+export default function CategoryStrip({categories,selectedCategory,onSelectCategory}){return <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={s.content}>{categories.map(c=>{const a=c===selectedCategory;return <Pressable key={c} onPress={()=>onSelectCategory(c)} style={[s.chip,a&&s.active]}><Text style={[s.text,a&&s.activeText]}>{c}</Text></Pressable>})}</ScrollView>}
+const s=StyleSheet.create({content:{gap:8,paddingHorizontal:16,paddingVertical:10},chip:{borderWidth:1,borderColor:'#d1d5db',borderRadius:17,paddingHorizontal:13,paddingVertical:7,backgroundColor:'#fff'},active:{backgroundColor:'#111827',borderColor:'#111827'},text:{fontSize:12,fontWeight:'700',textTransform:'capitalize'},activeText:{color:'#fff'}});
