@@ -1,0 +1,16 @@
+{
+  "expo": {
+    "name": "StreamBox",
+    "slug": "streambox-navigation",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "streambox",
+    "userInterfaceStyle": "dark",
+    "plugins": [
+      "expo-router"
+    ],
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}

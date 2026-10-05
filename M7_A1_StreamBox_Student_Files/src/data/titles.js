@@ -1,0 +1,8 @@
+export const titles = [
+  { id:'neon-horizon', title:'Neon Horizon', year:'2026', maturity:'TV-14', duration:'8 Episodes', genre:'Sci-Fi Drama', description:'A student engineer discovers a hidden signal inside a citywide transportation network.', poster:require('../assets/posters/neon-horizon.png'), featured:true, saved:true },
+  { id:'after-midnight', title:'After Midnight', year:'2025', maturity:'PG-13', duration:'1h 52m', genre:'Mystery', description:'Three friends follow a trail of messages that only appear after midnight.', poster:require('../assets/posters/after-midnight.png'), saved:false },
+  { id:'signal-lost', title:'Signal Lost', year:'2026', maturity:'TV-14', duration:'6 Episodes', genre:'Tech Thriller', description:'A campus network outage reveals a much larger system operating beneath the city.', poster:require('../assets/posters/signal-lost.png'), saved:true },
+  { id:'redline', title:'Redline', year:'2024', maturity:'PG-13', duration:'2h 03m', genre:'Action', description:'An underground racing crew is forced into one final cross-city run.', poster:require('../assets/posters/redline.png'), saved:false },
+  { id:'orbit-house', title:'Orbit House', year:'2026', maturity:'TV-PG', duration:'10 Episodes', genre:'Comedy', description:'Six roommates attempt to run the first student residence in low Earth orbit.', poster:require('../assets/posters/orbit-house.png'), saved:true },
+  { id:'southbound', title:'Southbound', year:'2025', maturity:'TV-14', duration:'7 Episodes', genre:'Drama', description:'A documentary crew follows six artists building new careers across the Gulf Coast.', poster:require('../assets/posters/southbound.png'), saved:false },
+];
