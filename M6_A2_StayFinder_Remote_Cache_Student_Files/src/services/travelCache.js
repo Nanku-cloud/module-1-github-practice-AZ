@@ -28,3 +28,5 @@ export async function getCachedWeatherData(cityId) {
     return null;
   }
 }
+export const loadTravelCache = getCachedWeatherData;
+export const saveTravelCache = cacheWeatherData;
