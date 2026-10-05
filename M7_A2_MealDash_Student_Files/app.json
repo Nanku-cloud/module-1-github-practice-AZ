@@ -1,0 +1,16 @@
+{
+  "expo": {
+    "name": "MealDash",
+    "slug": "mealdash-navigation",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "mealdash",
+    "userInterfaceStyle": "light",
+    "plugins": [
+      "expo-router"
+    ],
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}
