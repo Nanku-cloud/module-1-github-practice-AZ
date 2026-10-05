@@ -80,27 +80,61 @@ export default function BookingScreen() {
     );
 
   // TODO 8:
-  // Create async function loadCityData(isManualRefresh = false).
-  //
-  // Required cache-first flow:
-  // 1. If manual refresh, set isRefreshing(true).
-  //    Otherwise set isLoading(true).
+const loadCityData = async (isManualRefresh = false) => {
+  // 1. If manual refresh, set isRefreshing(true). Otherwise set isLoading(true).
+  if (isManualRefresh) {
+    setIsRefreshing(true);
+  } else {
+    setIsLoading(true);
+  }
+
   // 2. Clear old error.
-  // 3. await loadTravelCache(selectedCity.id).
-  // 4. If cache exists:
-  //      setWeather(cached.weather)
-  //      setSourceLabel('Saved cache')
-  //      setLastUpdatedLabel(...) using cached.savedAt
-  //      setIsLoading(false)
-  // 5. Request fresh data from getTravelConditions().
-  // 6. setWeather(freshData)
-  // 7. setSourceLabel('Live API')
-  // 8. update lastUpdatedLabel
-  // 9. await saveTravelCache(selectedCity.id, freshData)
-  // 10. catch:
-  //      if weather is null, show full error
-  //      otherwise show a message that cached data is being used
-  // 11. finally stop loading and refreshing.
+  setErrorMessage(null);
+
+  try {
+    // 3. await loadTravelCache(selectedCity.id).
+    const cached = await loadTravelCache(selectedCity.id);
+
+    // 4. If cache exists:
+    if (cached) {
+      setWeather(cached.weather);
+      setSourceLabel('Saved cache');
+      setLastUpdatedLabel(new Date(cached.savedAt).toLocaleTimeString());
+      setIsLoading(false);
+    }
+
+    // 5. Request fresh data from getTravelConditions().
+    const freshData = await getTravelConditions(
+      selectedCity.latitude,
+      selectedCity.longitude
+    );
+
+    // 6. setWeather(freshData)
+    setWeather(freshData);
+
+    // 7. setSourceLabel('Live API')
+    setSourceLabel('Live API');
+
+    // 8. update lastUpdatedLabel
+    setLastUpdatedLabel(new Date().toLocaleTimeString());
+
+    // 9. await saveTravelCache(selectedCity.id, freshData)
+    await saveTravelCache(selectedCity.id, freshData);
+  } catch (err) {
+    // 10. catch:
+    if (!weather) {
+      // if weather is null, show full error
+      setErrorMessage(err.message || 'Failed to load weather data');
+    } else {
+      // otherwise show a message that cached data is being used
+      setErrorMessage('Failed to fetch live conditions. Showing cached data.');
+    }
+  } finally {
+    // 11. finally stop loading and refreshing.
+    setIsLoading(false);
+    setIsRefreshing(false);
+  }
+};
 
   // TODO 9:
   // Use useEffect() so the flow runs when selectedCityId changes.
