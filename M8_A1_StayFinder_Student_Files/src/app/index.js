@@ -11,25 +11,27 @@ export default function HomeScreen() {
   const [errorMessage, setErrorMessage] = useState('');
 
   async function handleUseMyLocation() {
-    setIsLocating(true);
-    setErrorMessage('');
+  setIsLocating(true);
+  setErrorMessage('');
 
-    try {
-      // TODO 1: Request foreground location permission and save status.
+  try {
+    // TODO 1: Request foreground location permission and save status.
+    const { status } = await Location.requestForegroundPermissionsAsync();
 
-      // TODO 2: If permission is not granted, show a clear message and return.
-
-      // TODO 3: Request the current device location.
-
-      // TODO 4: Save the returned location with setLocation().
+    // TODO 2: If permission is not granted, show a clear message and return.
+    if (status !== 'granted') {
+      setErrorMessage('Permission to access location was denied');
+      return;
     }
-    catch (error) {
-      setErrorMessage('StayFinder could not determine your location. Try again or choose a city below.');
-    }
-    finally {
-      setIsLocating(false);
-    }
+
+    // (Checkpoints 2 & 3 code will go here next)
+
+  } catch (error) {
+    setErrorMessage('StayFinder could not determine your location. Try again or choose a city below.');
+  } finally {
+    setIsLocating(false);
   }
+}
 
   return (
     <ScrollView style={styles.screen} contentContainerStyle={styles.content}>
