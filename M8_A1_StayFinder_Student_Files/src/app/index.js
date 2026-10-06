@@ -23,8 +23,9 @@ export default function HomeScreen() {
       setErrorMessage('Permission to access location was denied');
       return;
     }
-
-    // (Checkpoints 2 & 3 code will go here next)
+    
+    // TODO 3: Request the current device location.
+    const currentLocation = await Location.getCurrentPositionAsync({});
 
   } catch (error) {
     setErrorMessage('StayFinder could not determine your location. Try again or choose a city below.');
