@@ -1,0 +1,21 @@
+{
+  "expo": {
+    "name": "CampusSafe",
+    "slug": "campussafe",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "campussafe",
+    "plugins": [
+      "expo-router",
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "CampusSafe uses your location only when you choose to identify or share your current position."
+        }
+      ]
+    ],
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}
