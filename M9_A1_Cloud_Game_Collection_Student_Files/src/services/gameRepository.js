@@ -1,5 +1,6 @@
 import { starterGames } from '../data/starterGames';
-
+import { db } from './firebaseConfig';
+import { collection, getDocs, addDoc, doc, updateDoc, deleteDoc } from 'firebase/firestore';
 /*
   MODULE 9 TODO FILE
   ------------------
@@ -11,29 +12,26 @@ import { starterGames } from '../data/starterGames';
 
 export async function getGames() {
   // TODO 1 — READ
-  // Read the "games" collection from Firestore.
-  // Convert each Firestore document into:
-  // { id: doc.id, ...doc.data() }
-  // Return the final array.
-
-  return starterGames;
+  const querySnapshot = await getDocs(collection(db, 'games'));
+  return querySnapshot.docs.map(doc => ({
+    id: doc.id,
+    ...doc.data()
+  }));
 }
 
 export async function addGame(game) {
   // TODO 2 — CREATE
-  // Add the supplied game object to the "games" collection.
-  // Return the new game with its Firestore document id.
-
+  const docRef = await addDoc(collection(db, 'games'), game);
   return {
-    id: String(Date.now()),
+    id: docRef.id,
     ...game,
   };
 }
 
 export async function updateGame(id, changes) {
   // TODO 3 — UPDATE
-  // Use the document id to update only the supplied fields.
-
+  const gameRef = doc(db, 'games', id);
+  await updateDoc(gameRef, changes);
   return {
     id,
     ...changes,
@@ -42,7 +40,7 @@ export async function updateGame(id, changes) {
 
 export async function deleteGame(id) {
   // TODO 4 — DELETE
-  // Delete the Firestore document that matches this id.
-
+  const gameRef = doc(db, 'games', id);
+  await deleteDoc(gameRef);
   return id;
 }
