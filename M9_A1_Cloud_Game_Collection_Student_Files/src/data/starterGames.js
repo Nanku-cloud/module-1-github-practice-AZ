@@ -1,7 +1,7 @@
 export const starterGames = [
   {
     id: 'demo-1',
-    title: 'Neon Drift',
+    title: 'Asphalt 8 Airborne',
     genre: 'Racing',
     platform: 'Cloud',
     status: 'Playing',
@@ -11,7 +11,7 @@ export const starterGames = [
   },
   {
     id: 'demo-2',
-    title: 'Iron Arena',
+    title: 'Capcom Fighting Collection',
     genre: 'Fighting',
     platform: 'Cloud',
     status: 'Backlog',
@@ -21,7 +21,7 @@ export const starterGames = [
   },
   {
     id: 'demo-3',
-    title: 'Skybound',
+    title: 'Hollow Knight',
     genre: 'Adventure',
     platform: 'Cloud',
     status: 'Playing',
@@ -31,7 +31,7 @@ export const starterGames = [
   },
   {
     id: 'demo-4',
-    title: 'Gridline',
+    title: 'Nba 2k24',
     genre: 'Sports',
     platform: 'Cloud',
     status: 'Completed',
@@ -41,7 +41,7 @@ export const starterGames = [
   },
   {
     id: 'demo-5',
-    title: 'Night Ops',
+    title: 'Call of Duty: Modern Warfare II',
     genre: 'Shooter',
     platform: 'Cloud',
     status: 'Backlog',
@@ -51,7 +51,7 @@ export const starterGames = [
   },
   {
     id: 'demo-6',
-    title: 'Mythic Realm',
+    title: 'Nier: Automata',
     genre: 'RPG',
     platform: 'Cloud',
     status: 'Playing',
