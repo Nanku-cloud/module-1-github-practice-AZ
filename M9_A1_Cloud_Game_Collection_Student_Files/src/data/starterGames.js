@@ -59,6 +59,26 @@ export const starterGames = [
     favorite: true,
     cover: require('../assets/images/cover6.jpg'),
   },
+  {
+    id: 'demo-7',
+    title: 'Witcher 3: Wild Hunt',
+    genre: 'RPG',
+    platform: 'Cloud',
+    status: 'Playing',
+    rating: 10,
+    favorite: true,
+    cover: require('../assets/images/cover7.jpg'),
+  },
+  {
+    id: 'demo-8',
+    title: 'Cuphead',
+    genre: 'action, adventure',
+    platform: 'Cloud',
+    status: 'Playing',
+    rating: 10,
+    favorite: true,
+    cover: require('../assets/images/cover8.jpg'),
+  },
 ];
 
 export const genres = [
