@@ -1,0 +1,16 @@
+{
+  "expo": {
+    "name": "Cloud Game Collection",
+    "slug": "cloud-game-collection",
+    "version": "1.0.0",
+    "orientation": "default",
+    "scheme": "cloudgamecollection",
+    "plugins": [
+      "expo-router",
+      "expo-sqlite"
+    ],
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}
