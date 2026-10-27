@@ -1,0 +1,15 @@
+{
+  "expo": {
+    "name": "Social Reel",
+    "slug": "social-reel",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "socialreel",
+    "plugins": [
+      "expo-router"
+    ],
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}
