@@ -1,0 +1,21 @@
+{
+  "expo": {
+    "name": "LiveFeed",
+    "slug": "livefeed",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "livefeed",
+    "plugins": [
+      "expo-router",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "LiveFeed uses your media library so you can choose a short video to preview in class."
+        }
+      ]
+    ],
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}
