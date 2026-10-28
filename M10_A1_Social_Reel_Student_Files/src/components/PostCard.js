@@ -5,9 +5,13 @@ import { colors } from '../styles/theme';
 
 export default function PostCard({ post }) {
   const [liked, setLiked] = useState(false);
+  const [bookmarked, setBookmarked] = useState(false);
 
   // TODO 1 - Heart Animation Value: Create an Animated.Value starting at 1
   const heartScale = useRef(new Animated.Value(1)).current;
+
+  // Design Challenge - Micro-interaction Value: Animated scale for bookmark icon
+  const bookmarkScale = useRef(new Animated.Value(1)).current;
 
   function handleLike() {
     setLiked(v => !v);
@@ -20,6 +24,24 @@ export default function PostCard({ post }) {
         useNativeDriver: true,
       }),
       Animated.spring(heartScale, {
+        toValue: 1,
+        friction: 4,
+        useNativeDriver: true,
+      }),
+    ]).start();
+  }
+
+  function handleBookmark() {
+    setBookmarked(v => !v);
+
+    // Design Challenge - Micro-interaction Trigger: Quick spring pulse feedback
+    Animated.sequence([
+      Animated.timing(bookmarkScale, {
+        toValue: 1.25,
+        duration: 90,
+        useNativeDriver: true,
+      }),
+      Animated.spring(bookmarkScale, {
         toValue: 1,
         friction: 4,
         useNativeDriver: true,
@@ -50,7 +72,16 @@ export default function PostCard({ post }) {
         <Ionicons name="chatbubble-outline" size={27} color={colors.text} />
         <Ionicons name="paper-plane-outline" size={27} color={colors.text} />
         <View style={s.spacer} />
-        <Ionicons name="bookmark-outline" size={27} color={colors.text} />
+        <Pressable onPress={handleBookmark}>
+          {/* Design Challenge - Micro-interaction View Wrapper */}
+          <Animated.View style={{ transform: [{ scale: bookmarkScale }] }}>
+            <Ionicons 
+              name={bookmarked ? 'bookmark' : 'bookmark-outline'} 
+              size={27} 
+              color={colors.text} 
+            />
+          </Animated.View>
+        </Pressable>
       </View>
       <Text style={s.likes}>{post.likes + (liked ? 1 : 0)} likes</Text>
       <Text style={s.caption}>
