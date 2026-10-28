@@ -9,7 +9,7 @@ import { colors } from '../styles/theme';
 export default function FeedScreen() {
   const [activeTab, setActiveTab] = useState('Feed');
 
-  // TODO 4: Create feed entrance Animated.Value(s). (Using fade + small vertical slide)
+  // TODO 4: Create feed entrance Animated.Value(s) (Using fade + small vertical slide)
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const slideAnim = useRef(new Animated.Value(15)).current;
 
@@ -47,22 +47,40 @@ export default function FeedScreen() {
         ))}
       </View>
 
-      {/* TODO 6: Wrap only the feed content in Animated.View and apply entrance styles. DO NOT animate bottom nav. */}
-      <Animated.View style={[s.flex, { opacity: fadeAnim, transform: [{ translateY: slideAnim }] }]}>
-        <FlatList
-          data={posts}
-          keyExtractor={i => i.id}
-          renderItem={({ item }) => <PostCard post={item} />}
-          ListHeaderComponent={
-            <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={s.stories}>
-              {stories.map(st => (
-                <StoryBubble key={st.id} story={st} />
-              ))}
-            </ScrollView>
-          }
-          showsVerticalScrollIndicator={false}
-        />
-      </Animated.View>
+      {/* Conditionally render Feed vs Reels content */}
+      {activeTab === 'Feed' ? (
+        /* TODO 6: Wrap only the feed content in Animated.View and apply entrance styles. DO NOT animate bottom nav. */
+        <Animated.View style={[s.flex, { opacity: fadeAnim, transform: [{ translateY: slideAnim }] }]}>
+          <FlatList
+            data={posts}
+            keyExtractor={i => i.id}
+            renderItem={({ item }) => <PostCard post={item} />}
+            ListHeaderComponent={
+              <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={s.stories}>
+                {stories.map(st => (
+                  <StoryBubble key={st.id} story={st} />
+                ))}
+              </ScrollView>
+            }
+            showsVerticalScrollIndicator={false}
+          />
+        </Animated.View>
+      ) : (
+        /* Reels Design Thinking Screen */
+        <View style={s.reels}>
+          <Ionicons name="play-circle-outline" size={58} color={colors.accent} />
+          <Text style={s.reelsTitle}>Reels Motion Lab</Text>
+          <Text style={s.reelsText}>
+            Think about how short-form video should enter, pause, resume, load, and respond to touch.
+          </Text>
+          <View style={s.think}>
+            <Text style={s.thinkTitle}>THINK BEFORE YOU ANIMATE</Text>
+            <Text style={s.thinkText}>
+              What does the movement communicate? Would the user understand the action without it? Is it short enough that it does not slow the experience down?
+            </Text>
+          </View>
+        </View>
+      )}
 
       <View style={s.bottom}>
         <Ionicons name="home" size={25} color={colors.text} />
@@ -128,6 +146,45 @@ const s = StyleSheet.create({
     paddingVertical: 15,
     borderBottomWidth: 1,
     borderBottomColor: colors.line,
+  },
+  reels: {
+    flex: 1,
+    padding: 28,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  reelsTitle: {
+    color: colors.text,
+    fontSize: 28,
+    fontWeight: '900',
+    marginTop: 14,
+  },
+  reelsText: {
+    color: colors.muted,
+    textAlign: 'center',
+    lineHeight: 22,
+    marginTop: 9,
+    maxWidth: 520,
+  },
+  think: {
+    marginTop: 24,
+    backgroundColor: colors.panel,
+    borderWidth: 1,
+    borderColor: colors.line,
+    borderRadius: 14,
+    padding: 16,
+    maxWidth: 520,
+  },
+  thinkTitle: {
+    color: colors.accent,
+    fontSize: 12,
+    fontWeight: '900',
+    letterSpacing: 1.1,
+  },
+  thinkText: {
+    color: colors.text,
+    marginTop: 7,
+    lineHeight: 21,
   },
   bottom: {
     height: 58,
