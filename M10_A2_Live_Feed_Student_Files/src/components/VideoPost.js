@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import {
   Pressable,
   StyleSheet,
   Text,
   View,
   Image,
+  Animated,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useEvent } from 'expo';
@@ -14,6 +15,7 @@ import { colors } from '../styles/theme';
 
 export default function VideoPost({ item }) {
   const [liked, setLiked] = useState(false);
+  const likeScale = useRef(new Animated.Value(1)).current;
 
   const player = useVideoPlayer(item.video, (instance) => {
     instance.loop = true;
@@ -33,22 +35,36 @@ export default function VideoPost({ item }) {
     }
   }
 
+  function handleLikePress() {
+    setLiked((value) => !value);
+
+    Animated.sequence([
+      Animated.spring(likeScale, {
+        toValue: 1.3,
+        friction: 3,
+        useNativeDriver: true,
+      }),
+      Animated.spring(likeScale, {
+        toValue: 1,
+        friction: 4,
+        useNativeDriver: true,
+      }),
+    ]).start();
+  }
+
   return (
     <View style={styles.card}>
       <View style={styles.header}>
         <Image source={item.avatar} style={styles.avatar} />
-
         <View style={styles.headerCopy}>
-          <View style={styles.nameRow}>
+          <View style={styles.namerow}>
             <Text style={styles.username}>{item.username}</Text>
             <View style={styles.liveBadge}>
               <Text style={styles.liveText}>LIVE</Text>
             </View>
           </View>
-
           <Text style={styles.time}>{item.time} • Mobile</Text>
         </View>
-
         <Ionicons
           name="ellipsis-horizontal"
           size={22}
@@ -65,14 +81,15 @@ export default function VideoPost({ item }) {
           contentFit="cover"
           nativeControls={false}
         />
-
-        <View style={styles.playOverlay}>
-          <Ionicons
-            name={isPlaying ? 'pause-circle' : 'play-circle'}
-            size={64}
-            color="rgba(255,255,255,0.90)"
-          />
-        </View>
+        {!isPlaying && (
+          <View style={styles.playOverlay}>
+            <Ionicons
+              name="play"
+              size={48}
+              color="rgba(255,255,255,0.9)"
+            />
+          </View>
+        )}
       </Pressable>
 
       <View style={styles.stats}>
@@ -86,14 +103,16 @@ export default function VideoPost({ item }) {
 
       <View style={styles.actions}>
         <Pressable
-          onPress={() => setLiked((value) => !value)}
+          onPress={handleLikePress}
           style={styles.action}
         >
-          <Ionicons
-            name={liked ? 'thumbs-up' : 'thumbs-up-outline'}
-            size={21}
-            color={liked ? colors.blue : colors.muted}
-          />
+          <Animated.View style={{ transform: [{ scale: likeScale }] }}>
+            <Ionicons
+              name={liked ? 'thumbs-up' : 'thumbs-up-outline'}
+              size={21}
+              color={liked ? colors.blue : colors.muted}
+            />
+          </Animated.View>
           <Text style={[styles.actionText, liked && styles.actionActive]}>
             Like
           </Text>
@@ -133,8 +152,10 @@ const styles = StyleSheet.create({
     borderRadius: 22,
     marginRight: 10,
   },
-  headerCopy: { flex: 1 },
-  nameRow: {
+  headerCopy: {
+    flex: 1,
+  },
+  namerow: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 8,
@@ -173,7 +194,7 @@ const styles = StyleSheet.create({
   },
   video: {
     width: '100%',
-    aspectRatio: 9/16,
+    aspectRatio: 9 / 16,
     maxHeight: 650,
   },
   playOverlay: {
@@ -194,9 +215,9 @@ const styles = StyleSheet.create({
   actions: {
     borderTopWidth: 1,
     borderTopColor: colors.border,
-    flexDirection: 'row',
     justifyContent: 'space-around',
     paddingVertical: 10,
+    flexDirection: 'row',
   },
   action: {
     flexDirection: 'row',
