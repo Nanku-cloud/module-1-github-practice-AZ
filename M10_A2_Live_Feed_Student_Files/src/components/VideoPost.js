@@ -17,6 +17,7 @@ export default function VideoPost({ item }) {
   const [liked, setLiked] = useState(false);
   const likeScale = useRef(new Animated.Value(1)).current;
 
+  // Swapped back to item.video for assignment submission
   const player = useVideoPlayer(item.video, (instance) => {
     instance.loop = true;
   });
@@ -74,23 +75,26 @@ export default function VideoPost({ item }) {
 
       <Text style={styles.caption}>{item.caption}</Text>
 
-      <Pressable onPress={togglePlayback} style={styles.videoWrap}>
+      <View style={styles.videoWrap}>
         <VideoView
           player={player}
           style={styles.video}
           contentFit="cover"
           nativeControls={false}
         />
-        {!isPlaying && (
-          <View style={styles.playOverlay}>
-            <Ionicons
-              name="play"
-              size={48}
-              color="rgba(255,255,255,0.9)"
-            />
-          </View>
-        )}
-      </Pressable>
+        
+        <Pressable onPress={togglePlayback} style={styles.touchOverlay}>
+          {!isPlaying && (
+            <View style={styles.playOverlay}>
+              <Ionicons
+                name="play"
+                size={48}
+                color="rgba(255,255,255,0.9)"
+              />
+            </View>
+          )}
+        </Pressable>
+      </View>
 
       <View style={styles.stats}>
         <Text style={styles.statText}>
@@ -197,8 +201,12 @@ const styles = StyleSheet.create({
     aspectRatio: 9 / 16,
     maxHeight: 650,
   },
-  playOverlay: {
+  touchOverlay: {
     ...StyleSheet.absoluteFillObject,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  playOverlay: {
     alignItems: 'center',
     justifyContent: 'center',
   },
