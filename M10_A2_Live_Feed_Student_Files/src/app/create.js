@@ -40,12 +40,17 @@ export default function CreateVideoScreen() {
     }
 
     // TODO 5:
-    // Open the media library and allow VIDEOS only.
-    // Use launchImageLibraryAsync().
-    //
-    // Store the selected video's URI in selectedUri.
-    //
-    // If the user cancels, keep the screen usable.
+    // Open the media library and allow videos only.
+    const result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Videos,
+      allowsEditing: true,
+      quality: 1,
+    });
+
+    // If the user chooses a video and doesn't cancel:
+    if (!result.canceled) {
+      setSelectedUri(result.assets[0].uri);
+    }
   }
 
   async function postVideo() {
@@ -65,9 +70,12 @@ export default function CreateVideoScreen() {
     setUploadState('success');
     setMessage('Video posted successfully.');
 
-    // TODO 6:
-    // Fade the success message into view.
-    // Use successOpacity and Animated.timing().
+    // TODO 6: Fade the success message into view.
+    Animated.timing(successOpacity, {
+      toValue: 1,
+      duration: 400,
+      useNativeDriver: true,
+    }).start();
   }
 
   const isUploading = uploadState === 'uploading';

@@ -18,20 +18,24 @@ import { colors } from '../styles/theme';
 export default function FeedScreen() {
   const [refreshing, setRefreshing] = useState(false);
 
-  // TODO 1:
-  // Create an Animated.Value for the Create Post button.
-  // Think about the normal scale value.
+  // TODO 1: Create Animated.Value for Create Post button scale
+  const buttonScale = useRef(new Animated.Value(1)).current;
 
   function pressCreateIn() {
-    // TODO 2:
-    // Add a small press-in animation.
-    // Do not make the button bounce dramatically.
-  }
+  // TODO 2: Add a small press-in animation.
+  Animated.spring(buttonScale, {
+    toValue: 0.95,
+    useNativeDriver: true,
+  }).start();
+}
 
   function pressCreateOut() {
-    // TODO 3:
-    // Return the button to its normal size.
-  }
+  // TODO 3: Return the button to its normal size.
+  Animated.spring(buttonScale, {
+    toValue: 1,
+    useNativeDriver: true,
+  }).start();
+}
 
   async function refreshFeed() {
     setRefreshing(true);
@@ -59,20 +63,19 @@ export default function FeedScreen() {
         </View>
 
         <Pressable
-          onPress={() => router.push('/create')}
-          onPressIn={pressCreateIn}
-          onPressOut={pressCreateOut}
-          style={styles.createPressable}
-        >
-          {/* TODO 4:
-              Wrap this button in Animated.View and
-              connect your scale value.
-          */}
-          <View style={styles.createButton}>
-            <Text style={styles.createText}>Create a video post</Text>
-            <Ionicons name="videocam-outline" size={22} color={colors.live} />
-          </View>
-        </Pressable>
+  onPress={() => router.push('/create')}
+  onPressIn={pressCreateIn}
+  onPressOut={pressCreateOut}
+  style={styles.createPressable}
+>
+  {/* TODO 4: Connect the Animation */}
+  <Animated.View style={[{ transform: [{ scale: buttonScale }] }]}>
+    <View style={styles.createButton}>
+      <Text style={styles.createText}>Create a video post</Text>
+      <Ionicons name="videocam-outline" size={22} color={colors.live} />
+    </View>
+  </Animated.View>
+</Pressable> {/* <-- This closes the Pressable from line 65 */}
       </View>
 
       <FlatList
