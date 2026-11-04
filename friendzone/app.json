@@ -1,0 +1,21 @@
+{
+  "expo": {
+    "name": "FriendZone",
+    "slug": "friendzone",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "friendzone",
+    "plugins": [
+      "expo-router",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "FriendZone uses your photo library so you can choose a profile photo."
+        }
+      ]
+    ],
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}
