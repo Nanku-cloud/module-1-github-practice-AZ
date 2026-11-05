@@ -5,12 +5,16 @@ import {
   StyleSheet,
   Text,
   View,
+  useWindowDimensions,
 } from 'react-native';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
   withSpring,
   withTiming,
+  interpolate,
+  Extrapolation,
+  runOnJS,
 } from 'react-native-reanimated';
 import {
   Gesture,
@@ -29,8 +33,8 @@ export default function FriendCard({
   onFriend,
   onPass,
 }) {
+  const { width } = useWindowDimensions();
   const translateX = useSharedValue(0);
-
   const sharedInterests = profile.interests.filter(
     (interest) => myInterests.includes(interest)
   );
