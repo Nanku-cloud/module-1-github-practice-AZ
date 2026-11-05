@@ -13,6 +13,7 @@ import Animated, {
   useSharedValue,
   withSpring,
   withTiming,
+  runOnJS,
 } from 'react-native-reanimated';
 import {
   Gesture,
@@ -40,6 +41,8 @@ export default function ViewerScreen() {
   const savedScale = useSharedValue(1);
   const translateX = useSharedValue(0);
   const translateY = useSharedValue(0);
+  const savedTranslateX = useSharedValue(0);
+  const savedTranslateY = useSharedValue(0);
 
   function previousPhoto() {
     setIndex((current) =>
@@ -65,7 +68,14 @@ export default function ViewerScreen() {
   // Use event.scale with savedScale.
   // Keep scale between MIN_SCALE and MAX_SCALE.
   // When the pinch ends, save the final scale.
-  const pinchGesture = Gesture.Pinch();
+  const pinchGesture = Gesture.Pinch()
+    .onUpdate((event) => {
+      const newScale = savedScale.value * event.scale;
+      scale.value = Math.min(Math.max(newScale, MIN_SCALE), MAX_SCALE);
+    })
+    .onEnd(() => {
+      savedScale.value = scale.value;
+    });
 
   // TODO 2:
   // Create a Pan gesture.
@@ -80,26 +90,58 @@ export default function ViewerScreen() {
   // swipe left past threshold = nextPhoto()
   // swipe right past threshold = previousPhoto()
   // otherwise return horizontal translation to 0.
-  const panGesture = Gesture.Pan();
+  const panGesture = Gesture.Pan()
+    .onUpdate((event) => {
+      if (scale.value > 1) {
+        translateX.value = savedTranslateX.value + event.translationX;
+        translateY.value = savedTranslateY.value + event.translationY;
+      } else {
+        translateX.value = event.translationX;
+      }
+    })
+    .onEnd((event) => {
+      if (scale.value > 1) {
+        savedTranslateX.value = translateX.value;
+        savedTranslateY.value = translateY.value;
+      } else {
+        if (event.translationX < -SWIPE_THRESHOLD) {
+          runOnJS(nextPhoto)();
+        } else if (event.translationX > SWIPE_THRESHOLD) {
+          runOnJS(previousPhoto)();
+        }
+        translateX.value = withSpring(0);
+      }
+    });
 
   // TODO 3:
   // Double tap:
   // - if currently at scale 1, zoom to 2
   // - otherwise resetImage()
   const doubleTap = Gesture.Tap()
-    .numberOfTaps(2);
+    .numberOfTaps(2)
+    .onEnd(() => {
+      if (scale.value === 1) {
+        scale.value = withSpring(2);
+        savedScale.value = 2;
+      } else {
+        runOnJS(resetImage)();
+      }
+    });
 
   // TODO 4:
   // Long press should toggle showInfo.
   const longPress = Gesture.LongPress()
-    .minDuration(550);
-
+    .minDuration(550)
+    .onEnd(() => {
+      runOnJS(setShowInfo)(!showInfo);
+    });
+    
   // TODO 5:
   // Combine gestures so pinch and pan can work together
   // without removing double-tap and long-press behavior.
-  const composedGesture = Gesture.Race(
-    doubleTap,
-    longPress
+  const composedGesture = useMemo(
+    () => Gesture.Simultaneous(pinchGesture, panGesture, doubleTap, longPress),
+    [pinchGesture, panGesture, doubleTap, longPress]
   );
 
   const imageStyle = useAnimatedStyle(() => {
