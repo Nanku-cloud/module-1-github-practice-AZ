@@ -1,0 +1,15 @@
+{
+  "expo": {
+    "name": "SnapView",
+    "slug": "snapview",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "snapview",
+    "plugins": [
+      "expo-router"
+    ],
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}
