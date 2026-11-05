@@ -35,33 +35,60 @@ export default function FriendCard({
     (interest) => myInterests.includes(interest)
   );
 
-  // TODO 1:
-  // Build the Pan gesture.
-  // During onUpdate:
-  // translateX.value = event.translationX
-  //
-  // During onEnd:
-  // right past threshold = Friend Zone
-  // left past threshold = Pass
-  // not far enough = return with withSpring(0)
-  const panGesture = Gesture.Pan();
+  // TODO 1: Swipe the Profile Card
+  const panGesture = Gesture.Pan()
+    .onUpdate((event) => {
+      translateX.value = event.translationX;
+    })
+    .onEnd(() => {
+      if (translateX.value > SWIPE_THRESHOLD) {
+        runOnJS(onFriend)();
+      } else if (translateX.value < -SWIPE_THRESHOLD) {
+        runOnJS(onPass)();
+      } else {
+        translateX.value = withSpring(0);
+      }
+    });
 
   // TODO 2:
   // Connect translateX to the card.
   // Add a SMALL rotation while dragging.
   const cardStyle = useAnimatedStyle(() => {
-    return {};
+    const rotate = interpolate(
+      translateX.value,
+      [-width / 2, 0, width / 2],
+      [-15, 0, 15]
+    );
+
+    return {
+      transform: [
+        { translateX: translateX.value },
+        { rotate: `${rotate}deg` },
+      ],
+    };
   });
 
   // TODO 3:
   // FRIEND ZONE becomes visible while moving right.
   // PASS becomes visible while moving left.
   const friendLabelStyle = useAnimatedStyle(() => {
-    return {};
+    const opacity = interpolate(
+      translateX.value,
+      [0, SWIPE_THRESHOLD / 2],
+      [0, 1],
+      Extrapolation.CLAMP
+    );
+    return { opacity };
   });
 
   const passLabelStyle = useAnimatedStyle(() => {
-    return {};
+    const opacity = interpolate(
+      translateX.value,
+      [-SWIPE_THRESHOLD / 2, 0],
+      [1, 0],
+      Extrapolation.CLAMP
+    );
+    return { opacity };
   });
 
   return (
