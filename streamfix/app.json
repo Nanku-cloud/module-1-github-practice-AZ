@@ -1,0 +1,15 @@
+{
+  "expo": {
+    "name": "StreamFix",
+    "slug": "streamfix",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "streamfix",
+    "plugins": [
+      "expo-router"
+    ],
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}
