@@ -37,20 +37,30 @@ export default function SearchScreen() {
 
       {/* INTENTIONAL QA-02:
           blank query and zero-result query both look like a blank screen. */}
-      {query.length > 0 && results.length > 0 ? (
-        <FlatList
-          data={results}
-          keyExtractor={(item)=>item.id}
-          contentContainerStyle={styles.list}
-          numColumns={2}
-          columnWrapperStyle={styles.row}
-          renderItem={({item})=>(
-            <AlbumCard item={item} onPlay={()=>{}} />
-          )}
-        />
-      ) : (
-        <View style={styles.blank} />
-      )}
+      {query.length === 0 ? (
+  <View style={styles.blank}>
+    <Text style={{ color: '#aaa', fontSize: 16, textAlign: 'center', marginTop: 40 }}>
+      Search for your favorite songs or artists to begin.
+    </Text>
+  </View>
+) : results.length > 0 ? (
+  <FlatList
+    data={results}
+    keyExtractor={(item) => item.id}
+    contentContainerStyle={styles.list}
+    numColumns={2}
+    columnWrapperStyle={styles.row}
+    renderItem={({ item }) => (
+      <AlbumCard item={item} onPlay={() => {}} />
+    )}
+  />
+) : (
+  <View style={styles.blank}>
+    <Text style={{ color: '#aaa', fontSize: 16, textAlign: 'center', marginTop: 40 }}>
+      No results found. Try another search term.
+    </Text>
+  </View>
+)}
 
       <BottomNav active="Search" />
     </SafeAreaView>
