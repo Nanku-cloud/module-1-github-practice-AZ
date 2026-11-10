@@ -8,12 +8,14 @@ import { tracks } from '../data/musicData';
 import { colors } from '../styles/theme';
 
 export default function LibraryScreen() {
-  const [favorites,setFavorites] = useState([tracks[0]]);
+  const [favorites, setFavorites] = useState([tracks[0]]);
 
   function addFavorite(track) {
-    // INTENTIONAL QA-03:
-    // duplicates are allowed.
-    setFavorites((current)=>[...current,track]);
+    // INTENTIONAL QA-03: prevent duplicate favorites
+    if (favorites.some((t) => t.id === track.id)) {
+      return;
+    }
+    setFavorites((current) => [...current, track]);
   }
 
   return (
@@ -22,11 +24,11 @@ export default function LibraryScreen() {
         <Text style={styles.title}>Your Library</Text>
         <Text style={styles.sub}>Saved tracks and playlists</Text>
 
-        <Pressable onPress={()=>addFavorite(tracks[1])} style={styles.debugAction}>
+        <Pressable onPress={() => addFavorite(tracks[1])} style={styles.debugAction}>
           <Text style={styles.debugText}>Add “After Hours” to Favorites</Text>
         </Pressable>
 
-        {favorites.map((track,index)=>(
+        {favorites.map((track, index) => (
           <View key={`${track.id}-${index}`} style={styles.row}>
             <Image source={track.cover} style={styles.cover} />
             <View style={styles.copy}>
@@ -43,21 +45,21 @@ export default function LibraryScreen() {
 }
 
 const styles = StyleSheet.create({
-  screen:{ flex:1, backgroundColor:colors.bg },
-  content:{ padding:18, paddingBottom:100 },
-  title:{ color:colors.text, fontSize:30, fontWeight:'900' },
-  sub:{ color:colors.muted, marginTop:4, marginBottom:18 },
-  debugAction:{
-    backgroundColor:'#202020', minHeight:44, justifyContent:'center',
-    paddingHorizontal:12, marginBottom:18
+  screen: { flex: 1, backgroundColor: colors.bg },
+  content: { padding: 18, paddingBottom: 100 },
+  title: { color: colors.text, fontSize: 30, fontWeight: '900' },
+  sub: { color: colors.muted, marginTop: 4, marginBottom: 18 },
+  debugAction: {
+    backgroundColor: '#202020', minHeight: 44, justifyContent: 'center',
+    paddingHorizontal: 12, marginBottom: 18
   },
-  debugText:{ color:'#fff', fontWeight:'800' },
-  row:{
-    minHeight:72, flexDirection:'row', alignItems:'center',
-    borderBottomWidth:1, borderBottomColor:'#222'
+  debugText: { color: '#fff', fontWeight: '800' },
+  row: {
+    minHeight: 72, flexDirection: 'row', alignItems: 'center',
+    borderBottomWidth: 1, borderBottomColor: '#222'
   },
-  cover:{ width:52, height:52 },
-  copy:{ flex:1, marginLeft:12 },
-  track:{ color:colors.text, fontWeight:'800' },
-  artist:{ color:colors.muted, marginTop:3, fontSize:12 },
+  cover: { width: 52, height: 52 },
+  copy: { flex: 1, marginLeft: 12 },
+  track: { color: colors.text, fontWeight: '800' },
+  artist: { color: colors.muted, marginTop: 3, fontSize: 12 },
 });
