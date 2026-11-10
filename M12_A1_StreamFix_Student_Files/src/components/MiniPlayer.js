@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     position:'absolute',
     left:8,
     right:8,
-    bottom:18, /* INTENTIONAL BUG QA-01: overlaps nav on smaller viewports */
+    bottom: 60, /* INTENTIONAL BUG QA-01: overlaps nav on smaller viewports */
     minHeight:58,
     backgroundColor:'#2A2A2A',
     flexDirection:'row',
